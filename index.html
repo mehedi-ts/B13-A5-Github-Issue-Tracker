@@ -17,16 +17,63 @@
     <!-- tailwindcss & daisyui -->
   </head>
   <body>
-    <div class="border p-8 max-w-[520px] mx-auto">
-      <div class="title">
-        <div class="logo"><img src="./assets/github-logo.png" alt="" /></div>
+    <div
+      class="border rounded-lg p-8 max-w-[520px] mx-auto mt-16 flex flex-col gap-6"
+    >
+      <div
+        class="title flex items-center justify-center flex-col text-center gap-6"
+      >
+        <div class="logo w-[100px] h-[100px]">
+          <img class="w-full h-full" src="./assets/github-logo.png" alt="" />
+        </div>
         <div>
-          <h2>GitHub Issues Tracker</h2>
-          <p>Sign in to manage your issues</p>
+          <h2 class="text-2xl font-semibold text-[#1F2937]">
+            GitHub Issues Tracker
+          </h2>
+          <p class="text-base text-[#64748B]">Sign in to manage your issues</p>
         </div>
       </div>
-      <div class="frm"></div>
-      <div class="defult"></div>
+      <div class="frm">
+        <form action="">
+          <fieldset class="fieldset w-full">
+            <label class="label text-sm text-[#1F2937] font-medium mb-1"
+              >Username</label
+            >
+            <input
+              id="email"
+              type="email"
+              class="input w-full p-4 text-[#64748B] text-base"
+              placeholder="Email"
+            />
+            <p class="text-sm text-[#4A00FF]">Default: admin</p>
+            <label class="label text-sm text-[#1F2937] font-medium mt-2"
+              >Password</label
+            >
+            <input
+              type="password"
+              class="input w-full p-4 text-[#64748B] text-base"
+              placeholder="Password"
+            />
+            <p class="text-sm text-[#4A00FF]">Default: admin123</p>
+
+            <button class="btn btn-primary mt-6">Sign In</button>
+          </fieldset>
+        </form>
+      </div>
+      <div class="divider">OR</div>
+      <div class="defult">
+        <p class="text-center text-sm text-[#64748B] mb-2">Demo Credentials:</p>
+        <div
+          class="flex flex-col items-center justify-center p-6 rounded-[8px] bg-[#F8FAFC]"
+        >
+          <p class="text-base text-[#1F2937]">
+            <span class="font-semibold">Username:</span> admin
+          </p>
+          <p class="text-base text-[#1F2937]">
+            <span class="font-semibold">Password:</span> admin123
+          </p>
+        </div>
+      </div>
     </div>
   </body>
 </html>
