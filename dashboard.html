@@ -4,8 +4,109 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Github-Issue-Tracker</title>
+    <!-- css  -->
+    <link rel="stylesheet" href="./styles/style.css" />
+    <!-- css  -->
+    <!-- tailwindcss & daisyui -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- tailwindcss & daisyui -->
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- font-awesome -->
   </head>
-  <body>
-    <h1>this is the dashboard page</h1>
+  <body class="bg-[#F8FAFC]">
+    <nav
+      class="border border-[#E4E4E7] py-4 px-20 flex items-center justify-between min-w-full bg-white"
+    >
+      <div class="logo flex items-center gap-2">
+        <img class="w-[35px]" src="./assets/github-logo.png" alt="" />
+        <span class="text-2xl font-semibold">GitHub Issues Tracker</span>
+      </div>
+      <div class="src flex items-center gap-4">
+        <input
+          class="p-4 text-base text-[#64748B] w-[300Px] h-11 border border-[#E4E4E7]"
+          type="search"
+          placeholder="Search"
+        />
+        <button class="btn btn-primary h-11">Search</button>
+      </div>
+    </nav>
+    <section
+      class="category-btn bg-white max-w-[1110px] w-full mx-auto p-6 mt-14 flex items-center justify-start gap-2 shadow-md rounded-lg mb-4"
+    >
+      <button class="btn btn-primary">All</button>
+      <button class="btn">Open</button>
+      <button class="btn">Closed</button>
+    </section>
+    <section class="max-w-[1110px] w-full mx-auto">
+      <div class="c-head flex items-center justify-between bg-white p-6">
+        <div class="count flex items-center justify-start gap-2">
+          <img class="w-[50px] h-[50px]" src="./assets/Aperture.png" alt="" />
+          <div>
+            <h3 class="text-xl font-semibold text-[#1F2937]">50 Issues</h3>
+            <p class="text-base text-[#64748B]">
+              Track and manage your project issues
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center justify-start gap-4">
+          <p class="text-sm font-medium flex items-center justify-center gap-2">
+            <i class="fa-solid fa-circle text-[10px] text-[#00A96E]"></i>Open
+          </p>
+          <p class="text-sm font-medium flex items-center justify-center gap-2">
+            <i class="fa-solid fa-circle text-[10px] text-[#A855F7]"></i> Closed
+          </p>
+        </div>
+      </div>
+      <div class="con p-6 grid grid-cols-4">
+        <div class="box rounded-[4px] border bg-white">
+          <div class="py-4 px-4 flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+              <img class="w-6 h-6" src="./assets/Closed- Status .png" alt="" />
+              <div
+                class="prio w-20 h-6 flex items-center justify-center bg-red-200 text-red-500 rounded-full"
+              >
+                <p class="text-[12px] font-medium">High</p>
+              </div>
+            </div>
+            <div class="text">
+              <h3 class="text-sm font-semibold mt-2 text-[#1F2937]">
+                Fix navigation menu on mobile devices
+              </h3>
+              <p class="text-[12px] text-[#64748B]">
+                The navigation menu doesn't collapse properly on mobile
+                devices...
+              </p>
+              <div class="tags flex gap-2 mt-3">
+                <span
+                  class="px-2 flex items-center justify-center border rounded-full text-[12] font-medium"
+                  ><p>BUG</p></span
+                >
+                <span
+                  class="px-2 flex items-center justify-center border rounded-full text-[12] font-medium"
+                  ><p>help wanted</p></span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="divider m-0"></div>
+          <div class="auth py-4 px-4">
+            <p>#1 by john_doe</p>
+            <p>1/15/2024</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
