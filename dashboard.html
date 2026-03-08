@@ -45,9 +45,9 @@
     <section
       class="category-btn bg-white max-w-[1110px] w-full mx-auto p-6 mt-14 flex items-center justify-start gap-2 shadow-md rounded-lg mb-4"
     >
-      <button class="btn btn-primary">All</button>
-      <button class="btn">Open</button>
-      <button class="btn">Closed</button>
+      <button id="all-btn" class="btn btn-primary">All</button>
+      <button id="open-btn" class="btn">Open</button>
+      <button id="closed-btn" class="btn">Closed</button>
     </section>
     <section class="max-w-[1110px] w-full mx-auto">
       <div class="c-head flex items-center justify-between bg-white p-6">
@@ -69,7 +69,10 @@
           </p>
         </div>
       </div>
-      <div class="con p-6 grid grid-cols-4">
+      <div
+        id="issues-con"
+        class="con p-6 grid grid-cols-4 place-items-center gap-3"
+      >
         <div class="box rounded-[4px] border bg-white">
           <div class="py-4 px-4 flex flex-col gap-3">
             <div class="flex items-center justify-between">
@@ -108,5 +111,9 @@
         </div>
       </div>
     </section>
+
+    <!-- javascript -->
+    <script src="./script/machine.js"></script>
+    <script src="./script/app.js"></script>
   </body>
 </html>
