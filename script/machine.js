@@ -94,10 +94,10 @@ const displayData = (issues) => {
     div.addEventListener("click", () => {
       cardMOdal(issue);
     });
-    div.innerHTML = `<div class="box h-[315px] rounded-[4px] shadow-md border-t-3 ${issue.status === "open" ? "border-[#00A96E]" : "border-[#A855F7]"}  bg-white">
+    div.innerHTML = `<div class="box h-[310px] cursor-pointer rounded-[4px] shadow-md border-t-3 ${issue.status === "open" ? "border-[#00A96E]" : "border-[#A855F7]"}  bg-white">
           <div class="py-4 px-4 flex flex-col gap-3">
             <div class="flex items-center justify-between">
-              <img class="w-6 h-6" src=${issue.status === "open" ? "../assets/Open-Status.png" : "./assets/Close-Status.png"} alt="" />
+              <img class="w-6 h-6" src=${issue.status === "open" ? "./assets/Open-Status.png" : "./assets/Close-Status.png"} alt="" />
               <div
                 class="prio w-20 h-6 flex items-center justify-center ${issue.priority === "high" ? "bg-[#FEECEC] text-[#EF4444]" : issue.priority === "medium" ? "bg-[#FFF6D1] text-[#F59E0B]" : "bg-[#EEEFF2] text-[#9CA3AF]"} rounded-full"
               >
@@ -127,8 +127,8 @@ const displayData = (issues) => {
           </div>
           <div class="divider m-0"></div>
           <div class="auth py-4 px-4">
-            <p>#1 ${issue.author}</p>
-            <p>${date}</p>
+            <p class=" text-xs text-[#64748B]">#${issue.id} ${issue.author}</p>
+            <p class=" text-xs text-[#64748B]">${date}</p>
           </div>
         </div>`;
     issueCon.appendChild(div);
