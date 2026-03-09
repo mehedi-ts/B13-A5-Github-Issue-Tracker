@@ -35,11 +35,14 @@
       </div>
       <div class="src flex items-center gap-4">
         <input
+          id="search"
           class="p-4 text-base text-[#64748B] w-[300Px] h-11 border border-[#E4E4E7]"
           type="search"
           placeholder="Search"
         />
-        <button class="btn btn-primary h-11">Search</button>
+        <button onclick="srcIssues()" id="search" class="btn btn-primary h-11">
+          Search
+        </button>
       </div>
     </nav>
     <section
@@ -54,7 +57,9 @@
         <div class="count flex items-center justify-start gap-2">
           <img class="w-[50px] h-[50px]" src="./assets/Aperture.png" alt="" />
           <div>
-            <h3 class="text-xl font-semibold text-[#1F2937]">50 Issues</h3>
+            <h3 class="text-xl font-semibold text-[#1F2937]">
+              <span id="count">0</span> Issues
+            </h3>
             <p class="text-base text-[#64748B]">
               Track and manage your project issues
             </p>
@@ -111,6 +116,96 @@
         </div>
       </div>
     </section>
+    <!-- <div class="w-[500px] p-8 flex flex-col gap-5 mx-auto mb-26 border">
+      <div class="flex flex-col gap-2 justify-center">
+        <h1 class="text-2xl font-bold text-[#1F2937]">
+          Fix broken image uploads
+        </h1>
+        <ul class="flex gap-3 items-center">
+          <li class="btn btn-success rounded-full">open</li>
+          <li>Opened by Fahim Ahmed</li>
+          <li>22/02/2026</li>
+        </ul>
+      </div>
+      <div class="flex gap-3">
+        <span
+          class="rounded-full px-4 py-2 text-xs font-medium bg-[#FFF8DB] text-[#D97706]"
+          >Bug</span
+        >
+        <span
+          class="rounded-full px-4 py-2 text-xs font-medium bg-[#FFF8DB] text-[#D97706]"
+          >Problem</span
+        >
+      </div>
+      <p class="text-[#64748B] text-base">
+        The navigation menu doesn't collapse properly on mobile devices. Need to
+        fix the responsive behavior.
+      </p>
+      <div class="bg-[#d4d4d4] flex justify-between p-4 rounded-lg text-left">
+        <div class="w-[50%]">
+          <p class="text-base text-[#64748B] mb-1">Assignee :</p>
+          <h4 class="text-base font-semibold text-[#1F2937]">Fahim Ahmed</h4>
+        </div>
+        <div class="w-[50%]">
+          <p class="text-base text-[#64748B] mb-1">Priority :</p>
+
+          <span class="px-4 py-1 rounded-full bg-red-500 text-white">High</span>
+        </div>
+      </div>
+    </div> -->
+    <input type="checkbox" id="my_modal_6" class="modal-toggle" />
+    <div class="modal" role="dialog">
+      <div class="modal-box">
+        <div class="flex flex-col gap-5 mx-auto mb-2">
+          <div class="flex flex-col gap-2 justify-center">
+            <h1 id="title" class="text-2xl font-bold text-[#1F2937]">
+              Fix broken image uploads
+            </h1>
+            <ul class="flex gap-3 items-center">
+              <li id="status" class="btn btn-success rounded-full">open</li>
+              <li id="opendby">Opened by Fahim Ahmed</li>
+              <li id="date" class="date">22/02/2026</li>
+            </ul>
+          </div>
+          <div id="labels" class="flex gap-3">
+            <span
+              class="rounded-full px-4 py-2 text-xs font-medium bg-[#FFF8DB] text-[#D97706]"
+              >Bug</span
+            >
+            <span
+              class="rounded-full px-4 py-2 text-xs font-medium bg-[#FFF8DB] text-[#D97706]"
+              >Problem</span
+            >
+          </div>
+          <p id="pr" class="text-[#64748B] text-base">
+            The navigation menu doesn't collapse properly on mobile devices.
+            Need to fix the responsive behavior.
+          </p>
+          <div
+            class="bg-[#d4d4d4] flex justify-between p-4 rounded-lg text-left"
+          >
+            <div class="w-[50%]">
+              <p class="text-base text-[#64748B] mb-1">Assignee :</p>
+              <h4 id="assigne" class="text-base font-semibold text-[#1F2937]">
+                Fahim Ahmed
+              </h4>
+            </div>
+            <div class="w-[50%]">
+              <p class="text-base text-[#64748B] mb-1">Priority :</p>
+
+              <span
+                id="prio"
+                class="px-4 py-1 rounded-full bg-red-500 text-white"
+                >High</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="modal-action">
+          <label for="my_modal_6" class="btn">Close!</label>
+        </div>
+      </div>
+    </div>
 
     <!-- javascript -->
     <script src="./script/machine.js"></script>
