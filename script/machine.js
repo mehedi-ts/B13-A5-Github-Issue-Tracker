@@ -1,5 +1,14 @@
 let allData = [];
 
+const loader = (isloading) => {
+  const lodarEl = document.getElementById("loader");
+  if (isloading) {
+    lodarEl.classList.remove("hidden");
+  } else {
+    lodarEl.classList.add("hidden");
+  }
+};
+
 const filterByStatus = (sta) => {
   if (sta === "all") {
     displayData(allData);
@@ -9,16 +18,22 @@ const filterByStatus = (sta) => {
   displayData(filterData);
 };
 const srcIssues = () => {
+  loader(true);
   const srcText = document.getElementById("search").value;
+  if (srcText === "") {
+    alert("Search field cannot be empty!");
+    return;
+  }
   console.log(srcText);
   let url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${srcText}`;
   console.log(url);
+
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
       allData = data.data;
       displayData(data.data);
-      console.log(data.data);
+      loader(false);
     });
 };
 
@@ -35,16 +50,17 @@ const cardMOdal = (issue) => {
 
   title.innerText = issue.title;
   status.innerText = issue.status;
+  status.className = `${issue.status === "open" ? "bg-[#00A96E]" : "bg-[#A855F7]"} text-white px-3 py-[6px] rounded-full`;
   opendBy.innerText = issue.author;
   dateEl.innerText = date;
   pr.innerText = issue.description;
   assigne.innerText = issue.assignee;
   prio.innerText = issue.priority;
+  prio.className = `px-4 py-1 rounded-full ${issue.priority === "high" ? "bg-[#EF4444] text-[white]" : issue.priority === "medium" ? "bg-[#F59E0B] text-[white]" : "bg-[#9CA3AF] text-[white]"}`;
   labels.innerHTML = "";
   issue.labels.forEach((element) => {
     const span = document.createElement("span");
-    span.classList =
-      "rounded-full px-4 py-2 text-xs font-medium bg-[#FFF8DB] text-[#D97706]";
+    span.className = `rounded-full px-4 py-2 text-xs font-medium ${element === "help wanted" ? "bg-[#FFF8DB] text-[#D97706]" : element === "bug" ? "bg-[#FEECEC] text-[#EF4444]" : "bg-[#DEFCE8] text-[#00A96E]"}`;
     span.innerText = element;
     labels.appendChild(span);
   });
@@ -53,12 +69,14 @@ const cardMOdal = (issue) => {
 };
 
 const dataLoad = (url) => {
+  loader(true);
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
       allData = data.data;
       console.log(allData);
       displayData(data.data);
+      loader(false);
     });
 };
 dataLoad("https://phi-lab-server.vercel.app/api/v1/lab/issues");
@@ -76,10 +94,10 @@ const displayData = (issues) => {
     div.addEventListener("click", () => {
       cardMOdal(issue);
     });
-    div.innerHTML = `<div class="box h-[300px] rounded-[4px] shadow-md border-t-3 ${issue.status === "open" ? "border-[#00A96E]" : "border-[#A855F7]"}  bg-white">
+    div.innerHTML = `<div class="box h-[315px] rounded-[4px] shadow-md border-t-3 ${issue.status === "open" ? "border-[#00A96E]" : "border-[#A855F7]"}  bg-white">
           <div class="py-4 px-4 flex flex-col gap-3">
             <div class="flex items-center justify-between">
-              <img class="w-6 h-6" src=${issue.status === "open" ? "../assets/Open-Status.png" : "../assets/Close-Status.png"} alt="" />
+              <img class="w-6 h-6" src=${issue.status === "open" ? "../assets/Open-Status.png" : "./assets/Close-Status.png"} alt="" />
               <div
                 class="prio w-20 h-6 flex items-center justify-center ${issue.priority === "high" ? "bg-[#FEECEC] text-[#EF4444]" : issue.priority === "medium" ? "bg-[#FFF6D1] text-[#F59E0B]" : "bg-[#EEEFF2] text-[#9CA3AF]"} rounded-full"
               >

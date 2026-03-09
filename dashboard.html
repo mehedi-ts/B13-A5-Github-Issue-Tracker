@@ -27,7 +27,7 @@
   </head>
   <body class="bg-[#F8FAFC]">
     <nav
-      class="border border-[#E4E4E7] py-4 px-20 flex items-center justify-between min-w-full bg-white"
+      class="border border-[#E4E4E7] py-4 gap-3 sm:gap-0 sm:px-20 flex flex-col sm:flex-row items-center justify-between min-w-full bg-white"
     >
       <div class="logo flex items-center gap-2">
         <img class="w-[35px]" src="./assets/github-logo.png" alt="" />
@@ -36,11 +36,11 @@
       <div class="src flex items-center gap-4">
         <input
           id="search"
-          class="p-4 text-base text-[#64748B] w-[300Px] h-11 border border-[#E4E4E7]"
+          class="p-4 flex-1 rounded-lg text-base text-[#64748B] w-[200Px] sm:w-[300Px] border border-[#E4E4E7]"
           type="search"
           placeholder="Search"
         />
-        <button onclick="srcIssues()" id="search" class="btn btn-primary h-11">
+        <button onclick="srcIssues()" class="btn btn-primary h-11">
           Search
         </button>
       </div>
@@ -76,102 +76,34 @@
       </div>
       <div
         id="issues-con"
-        class="con p-6 grid grid-cols-4 place-items-center gap-3"
-      >
-        <div class="box rounded-[4px] border bg-white">
-          <div class="py-4 px-4 flex flex-col gap-3">
-            <div class="flex items-center justify-between">
-              <img class="w-6 h-6" src="./assets/Closed- Status .png" alt="" />
-              <div
-                class="prio w-20 h-6 flex items-center justify-center bg-red-200 text-red-500 rounded-full"
-              >
-                <p class="text-[12px] font-medium">High</p>
-              </div>
-            </div>
-            <div class="text">
-              <h3 class="text-sm font-semibold mt-2 text-[#1F2937]">
-                Fix navigation menu on mobile devices
-              </h3>
-              <p class="text-[12px] text-[#64748B]">
-                The navigation menu doesn't collapse properly on mobile
-                devices...
-              </p>
-              <div class="tags flex gap-2 mt-3">
-                <span
-                  class="px-2 flex items-center justify-center border rounded-full text-[12] font-medium"
-                  ><p>BUG</p></span
-                >
-                <span
-                  class="px-2 flex items-center justify-center border rounded-full text-[12] font-medium"
-                  ><p>help wanted</p></span
-                >
-              </div>
-            </div>
-          </div>
-          <div class="divider m-0"></div>
-          <div class="auth py-4 px-4">
-            <p>#1 by john_doe</p>
-            <p>1/15/2024</p>
-          </div>
-        </div>
+        class="con p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 place-items-center gap-4 sm:gap-3"
+      ></div>
+      <div id="loader" class="mx-auto flex items-center justify-center">
+        <span class="loading loading-spinner loading-xl col-span-full"></span>
       </div>
     </section>
-    <!-- <div class="w-[500px] p-8 flex flex-col gap-5 mx-auto mb-26 border">
-      <div class="flex flex-col gap-2 justify-center">
-        <h1 class="text-2xl font-bold text-[#1F2937]">
-          Fix broken image uploads
-        </h1>
-        <ul class="flex gap-3 items-center">
-          <li class="btn btn-success rounded-full">open</li>
-          <li>Opened by Fahim Ahmed</li>
-          <li>22/02/2026</li>
-        </ul>
-      </div>
-      <div class="flex gap-3">
-        <span
-          class="rounded-full px-4 py-2 text-xs font-medium bg-[#FFF8DB] text-[#D97706]"
-          >Bug</span
-        >
-        <span
-          class="rounded-full px-4 py-2 text-xs font-medium bg-[#FFF8DB] text-[#D97706]"
-          >Problem</span
-        >
-      </div>
-      <p class="text-[#64748B] text-base">
-        The navigation menu doesn't collapse properly on mobile devices. Need to
-        fix the responsive behavior.
-      </p>
-      <div class="bg-[#d4d4d4] flex justify-between p-4 rounded-lg text-left">
-        <div class="w-[50%]">
-          <p class="text-base text-[#64748B] mb-1">Assignee :</p>
-          <h4 class="text-base font-semibold text-[#1F2937]">Fahim Ahmed</h4>
-        </div>
-        <div class="w-[50%]">
-          <p class="text-base text-[#64748B] mb-1">Priority :</p>
 
-          <span class="px-4 py-1 rounded-full bg-red-500 text-white">High</span>
-        </div>
-      </div>
-    </div> -->
     <input type="checkbox" id="my_modal_6" class="modal-toggle" />
     <div class="modal" role="dialog">
-      <div class="modal-box">
+      <div id="modal" class="modal-box">
         <div class="flex flex-col gap-5 mx-auto mb-2">
           <div class="flex flex-col gap-2 justify-center">
             <h1 id="title" class="text-2xl font-bold text-[#1F2937]">
               Fix broken image uploads
             </h1>
-            <ul class="flex gap-3 items-center">
-              <li id="status" class="btn btn-success rounded-full">open</li>
-              <li id="opendby">Opened by Fahim Ahmed</li>
-              <li id="date" class="date">22/02/2026</li>
+
+            <ul class="flex gap-7 items-center">
+              <li id="status" class="">open</li>
+              <li class="text-[#64748B] text-sm list-disc">
+                Opened by <span id="opendby"></span>
+              </li>
+              <li id="date" class="text-[#64748B] text-sm list-disc">
+                22/02/2026
+              </li>
             </ul>
           </div>
           <div id="labels" class="flex gap-3">
-            <span
-              class="rounded-full px-4 py-2 text-xs font-medium bg-[#FFF8DB] text-[#D97706]"
-              >Bug</span
-            >
+            <span class="">Bug</span>
             <span
               class="rounded-full px-4 py-2 text-xs font-medium bg-[#FFF8DB] text-[#D97706]"
               >Problem</span
@@ -182,7 +114,7 @@
             Need to fix the responsive behavior.
           </p>
           <div
-            class="bg-[#d4d4d4] flex justify-between p-4 rounded-lg text-left"
+            class="bg-[#ebebeb] flex justify-between p-4 rounded-lg text-left"
           >
             <div class="w-[50%]">
               <p class="text-base text-[#64748B] mb-1">Assignee :</p>
@@ -193,11 +125,7 @@
             <div class="w-[50%]">
               <p class="text-base text-[#64748B] mb-1">Priority :</p>
 
-              <span
-                id="prio"
-                class="px-4 py-1 rounded-full bg-red-500 text-white"
-                >High</span
-              >
+              <span id="prio" class="">High</span>
             </div>
           </div>
         </div>
