@@ -10,7 +10,7 @@ submitEl.addEventListener("click", (e) => {
     alert("Invalid UserName or Password!");
     return;
   }
-  alert("Sign in successful!");
+
   naemEl.value = "";
   passwordEl.value = "";
   window.location.replace("dashboard.html");
