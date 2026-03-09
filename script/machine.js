@@ -74,7 +74,7 @@ const dataLoad = (url) => {
     .then((res) => res.json())
     .then((data) => {
       allData = data.data;
-      console.log(allData);
+
       displayData(data.data);
       loader(false);
     });
